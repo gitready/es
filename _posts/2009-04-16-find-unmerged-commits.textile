@@ -1,21 +1,20 @@
 ---
-published: false
 layout: post
-title: find unmerged commits
+title: buscando commits pendientes
 category: intermediate
 ---
 
-So you're chugging along developing in a topic branch when you decide it's about time that your work needs to brought back into your main development line. With graphical views like "gitk or GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html, it's really easy to figure out what hasn't been merged in yet. Let's say we have the following scenario:
+Digamos que estás trabajando en una rama particular y has decidido que ya es tiempo de aplicar tus modificaciones en la rama principal. Con herramientas gráficas como "gitk or GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html, es realmente sencillo determinar cuáles son las modificaciones que no han sido aplicadas aún. Por ejemplo, supongamos el siguiente caso:
 
 p=. !/images/cherry-gitx.png!
 
-If you want to do this from the command line, you've got a few options. One decent way of visualizing this is by using @git log@, which has plenty of "awesome options available":http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html besides this one:
+Si deseas hacer lo mismo desde la línea de comandos, tienes varias opciones. Una forma decente de ver la actividad de un repositorio es usar @git log@, que ofrece unas cuantas "opciones interesantes":http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html, como por ejemplo:
 
 @git log --pretty=oneline --graph --all@
 
 p=. !/images/cherry-log.png!
 
-You could also use the range syntax in @git log@ to get the commits that aren't merged.
+También puedes usar la siguiente sintaxis con @git log@ si deseas ver los commits que no fueron aplicados aún:
 
 <pre>
 $ git checkout master
@@ -24,7 +23,7 @@ $ git log ..42-adding-replies
 
 @git log master..42-adding-replies@
 
-There is another option though: @git cherry@. This does exactly what we want: tells us which commits aren't in the branch specified. So if I was on the master branch and I ran:
+Sin embargo, existe otra opción mejor: @git cherry@. Este comando hace exactamente lo que estamos buscando: nos dice cuáles son los commits que aún no han sido aplicados en la rama especificada. Por ejemplo, si estoy en la rama @master@, puedo ejecutar:
 
 <pre>
 $ git cherry -v master 42-adding-replies
@@ -37,7 +36,7 @@ $ git cherry -v master 42-adding-replies
 </pre>
 
 
-So what we just did was asked Git what's not in @master@ that's in @42-adding-replies@ branch. Just like in the images above it's simple to see what needs to get merged in still. The @-v@ option will print out the commit message along with the SHA hash so it's easier to figure out what exactly you're looking at. This command also takes in a third, optional argument for picking a starting point or limit. So, if we wanted to just check everything after commit @7e71af@, you'd get this:
+Lo que hicimos fue preguntarle a Git qué commits incluídos en la rama @42-adding-replies@ no existen aún en @master@. Utilizando este comando, determinar cuáles son los cambios que aún hay que aplicar en @master@ es tan sencillo como en la primera imagen de este artículo. La opción @-v@ hace que además del SHA se incluyan los mensajes de cada commit, para que la tarea de identificarlos sea más simple. Este comando también acepta un tercer parámetro opcional que indique a partir de dónde hay que comenzar a buscar. Por ejemplo, si quisiéramos analizar sólo a partir del commit @7e71af@, deberíamos hacer lo siguiente:
 
 <pre>
 $ git cherry -v master 42-adding-replies 7e71af
@@ -47,7 +46,7 @@ $ git cherry -v master 42-adding-replies 7e71af
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909 Wrapping this up. Ship it.
 </pre>
 
-As you can see, that skipped the first two commits in our topic branch. If you wanted to check what hasn't been merged into an upstream branch when not actually on the upstream branch, it's a little simpler:
+Como puedes ver, en este caso los dos primeros commits sin aplicar fueron omitidos. Si en cambio quieres saber cuáles son los commits de la rama actual que aún no fueron aplicados en alguna otra rama en particular, la sintaxis sería la siguiente:
 
 <pre>
 $ git checkout 42-adding-replies
@@ -60,4 +59,4 @@ $ git cherry master
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909
 </pre>
 
-One really neat aspect about this command is that it actually compares the changesets instead of the commit SHA, since you may have modified the commit by adding a signoff or changed its parents in some manner. In any case, you can depend on this command to tell you what hasn't been merged into your upstream branch. Also, don't confuse this with "cherry-pick":http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html, which does something totally different.
+Un aspecto bastante interesante de este comando es que realmente compara los cambios, en lugar de comparar simplemente el SHA de cada commit, ya que puedes haber modificado el commit, o sus ancestros de alguna forma. En resumen, puedes confiar en este comando cada vez que necesites determinar cuáles son las modificaciones que no fueron aplicadas aún en otra rama. No confundir este comando con "cherry-pick":http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html, que se utiliza para algo completamente distinto.
