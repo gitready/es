@@ -1,17 +1,16 @@
 ---
-published: false
 layout: post
-title: reorder commits with rebase
+title: reordenando commits con rebase
 category: advanced
 ---
 
-One of the vast uses of "git rebase -i":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html is reordering commits. Just please, PLEASE don't rebase commits that have been pushed publicly. If you're working with other developers, that will make the merge non fast-forwardable and creates headaches for all involved. Yes, the command allows one to rewrite history, but only do so when the commits are still on your local machine.
+Uno de los múltiples usos que tiene el comando "git rebase -i":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html es el de reordenar commits. Pero por favor, POR FAVOR, nunca hagas un rebase sobre commits que hayan sido publicados. Si estás trabajando con otros desarrolladores, haciendo esto sólo lograrás que las integraciones tengan problemas, ocasionando dolores de cabeza a todos los involucrados. Es cierto, este comando permite modificar la historia del repositorio, pero sólo debes hacer esto cuando todos los commits involucrados están aún unicamente en tu propia máquina.
 
-Now that the warnings are over, let's get to the point. The scenario here is that you want to change up the sequence of commits. Perhaps you wanted to push certain changes farther down in history, or for some reason putting that third commit as the first one just makes more sense. So, let's do just that. Let's say our history looks like so:
+Una vez dicho esto, vayamos al grano. Supongamos que quieres cambiar la secuencia de commits. Por ejemplo, digamos que por alguna razón, ese tercer commit tendría más sentido si fuera el primero en la lista. Suponiendo que la historia reciente de tu repositorio es la siguiente:
 
 p=. !/images/reorder1.png!
 
-So, let's start by using @git rebase -i HEAD~3@. Your $EDITOR will pop open with some text similar to this:
+Comencemos por ejecutar @git rebase -i HEAD~3@. Tu $EDITOR favorito aparecerá con un texto similar al siguiente:
 
 <pre>
 pick 4c39bca gemspec tweak
@@ -30,7 +29,7 @@ pick eb32194 Regenerated gemspec for version 0.4.1
 #
 </pre>
 
-Reordering is as simple as moving the various 'pick' commands around. So if we wanted to swap the first commit with the last:
+Reordenar los commits es tan sencillo como mover los comandos 'pick' dentro del texto. A modo de ejemplo, cambiamos el primer commit por el último:
 
 <pre>
 pick eb32194 Regenerated gemspec for version 0.4.1
@@ -42,8 +41,8 @@ $ git rebase -i HEAD~3
 Successfully rebased and updated refs/heads/test.
 </pre>
 
-Save the file, and hopefully everything will go alright. If not, you'll probably have a decent merge to take care of. If this gets too messy to take care of, just do a @git rebase --abort@ and you'll be back where you started. Don't worry about losing data either, since you can always use the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html to pluck out anything you might need. As expected, the history now shows the commits reversed:
+Guardamos el archivo, y esperamos que todo salga bien. En caso contrario, probablemente tengas un conflicto que resolver. Si se torna muy complicado, recuerda que siempre puedes ejecutar @git rebase --abort@ y volver al punto inicial. No te preocupes tampoco por la posible pérdida de datos, ya que siempre puedes usar la técnica de "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. Como esperabamos, la historia ahora muestra los commits invertidos:
 
 p=. !/images/reorder2.png!
 
-Do note that the commit dates are still reversed, so it may seem a bit strange especially to others working with your repository. Reordering is probably more useful when combined with the other options available inside of interactive rebase, such as "squashing":http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html or editing commit messages. If reordering commits has helped you out (or possibly hurted!) do let us know in the comments.
+Ten en cuenta que las fechas de los commits están ahora invertidas, y que esto puede parecer algo extraño especialmente para otros desarrolladores que estén trabajando con tu repositorio. El reordenamiento de commits es probablemente más útil cuando se combina con otras opciones disponibles en un rebase interactivo, como "squashing":http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html o la edición de mensajes de commit. Si has utilizado esta técnica y te ha ayudado (¡o aún si te ha dado problemas!) escríbenos un comentario.
