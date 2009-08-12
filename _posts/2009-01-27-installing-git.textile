@@ -1,34 +1,33 @@
 ---
-published: false
 layout: post
-title: installing git
+title: instalando git
 category: beginner
 ---
 
-This is probably the most basic tip: installing the system itself! Turns out that it's easier than you think to start using Git on your system. This tip will continue to be updated with the latest and easiest ways to install Git on your favorite operating system.  
+Este es probablemente el truco más básico: ¡cómo instalar el sistema propiamente dicho! Sucede que comenzar a utilizar Git en tu sistema es mucho más fácil de lo que crees. Este artículo será actualizado constantemente con las últimas y mejores soluciones para instalar Git en tu sistema operativo favorito.
 
-If this list doesn't have your favorite operating system's directions, if links have become outdated, or you have an easier way let us know in the comments! Also, if you're having snags getting Git installed/compiled give a shout.
+Si no encuentras tu sistema operativo en la lista, si ves algún enlace roto o desactualizado, o conoces alguna forma más fácil de instalar Git, por favor, ¡déjanos un comentario!
 
 p=. "!http://farm4.static.flickr.com/3047/2754478731_6cac6d30a8_m.jpg!":http://flickr.com/photos/15708236@N07/2754478731/
 
 *Windows*
 
-Yes, it works!  There are plenty of awesome guides, but "nathanj's":http://github.com/nathanj "Illustrated Guide to Git on Windows":http://nathanj.github.com/gitguide/ is simply the best. It has a tutorial on how to get started using the system as well, and you can get started on it by downloading "Git on MSys":http://code.google.com/p/msysgit/. Another option available to Windows users is "compiling from source":http://techblogging.wordpress.com/2008/04/11/compiling-and-installing-git-on-windows-under-cygwin/ with "Cygwin":http://www.cygwin.com/.
+¡Sí, funciona! Existen muchas guías muy buenas, pero la de "nathanj":http://github.com/nathanj "Illustrated Guide to Git on Windows":http://nathanj.github.com/gitguide/ es simplemente la mejor de todas. Incluye un tutorial sobre cómo usar el sistema, y puedes comenzar ya mismo descargando "Git on MSys":http://code.google.com/p/msysgit/. Otra opción disponible para usuarios Windows es "compilar los fuentes":http://techblogging.wordpress.com/2008/04/11/compiling-and-installing-git-on-windows-under-cygwin/ con "Cygwin":http://www.cygwin.com/.
 
 *OSX*
 
-On 10.4 (Tiger), install "MacPorts":http://macports.org and run @sudo port install git-core@. You could also "compile from source manually if that didn't work.":http://larrytheliquid.com/2007/12/29/compiling-git-and-git-svn-on-osx-tiger/
+En 10.4 (Tiger), instala "MacPorts":http://macports.org y ejecuta @sudo port install git-core@. También puedes "compilar los fuentes manualmente si eso no funciona.":http://larrytheliquid.com/2007/12/29/compiling-git-and-git-svn-on-osx-tiger/
 
-On 10.5 (Leopard), it's a lot easier thanks to the "Git OSX Installer":http://code.google.com/p/git-osx-installer/ project. Just pick the latest and greatest version for your CPU's architecture, and you're set.
+En 10.5 (Leopard) la instalación es mucho más sencilla gracias al proyecto "Git OSX Installer":http://code.google.com/p/git-osx-installer/. Simplemente selecciona la versión disponible más reciente para la arquitectura de tu CPU y listo.
 
 *Linux*
 
-Installing on your favorite distro is quite simple:
+Instalar Git en tu distribución favorita es simple:
 
 p=. @apt-get install git-core@
-or
+o
 @yum install git-core@
 
-If you want to compile from source on Ubuntu, "Chris Olsen":http://chrisolsen.org has a "fantastic tutorial":http://chrisolsen.org/2008/03/10/installing-git-on-ubuntu/.
+Si deseas compilar los fuentes en Ubuntu, "Chris Olsen":http://chrisolsen.org tiene un "tutorial fantástico":http://chrisolsen.org/2008/03/10/installing-git-on-ubuntu/.
 
-For more options, check out the "Git Community Book":http://book.git-scm.com/2_installing_git.html or the "GitWiki":http://git.or.cz/gitwiki/Installation!
+Para más opciones, visita el "Git Community Book":http://book.git-scm.com/2_installing_git.html o el "GitWiki":http://git.or.cz/gitwiki/Installation!
