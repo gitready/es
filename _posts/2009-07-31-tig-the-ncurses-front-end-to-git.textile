@@ -1,6 +1,6 @@
 ---
 layout: post
-title: tig, un front-end basado en ncurses para Git
+title: tig, un front-end para Git basado en ncurses
 category: advanced
 ---
 
