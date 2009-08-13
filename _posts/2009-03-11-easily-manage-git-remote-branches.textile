@@ -1,13 +1,12 @@
 ---
-published: false
 layout: post
-title: easily manage git remote branches
+title: administrando ramas remotas
 category: advanced
 ---
 
-"Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git users' daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you shouldn't have to either.
+"Obtener ramas remotas":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "eliminarlas":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, y publicar nuevas ramas es parte del trabajo diario de muchos usuarios Git. Pero seriamente, ¿quién quiere escribir *tanto*? Definitivamente yo no, y tu tampoco tienes que hacerlo.
 
-Enter "git_remote_branch":http://grb.rubyforge.org/, a helpful "RubyGem":http://rubygems.org for just this task. It installs a new executable to help take some of the chore of working with remotes away. Here are some of the commands it has:
+Te presento a "git_remote_branch":http://grb.rubyforge.org/, una "RubyGem":http://rubygems.org muy útil que instala una herramienta que facilita el trabajo con ramas remotas. Algunos comandos que nos ofrece son los siguientes:
 
 <pre>
 grb create branch_name [origin_server]
@@ -21,14 +20,14 @@ grb delete branch_name [origin_server]
 grb track branch_name [origin_server]
 </pre>
 
-What's awesome about it is that it shows what Git commands are running underneath it, so it's quite easy to figure out exactly what's going on.
+Lo mejor de todo es que además nos muestra los comandos Git que se ejecutan para llevar a cabo cada tarea, con lo cual es sencillo darse cuenta exactamente de lo que está ocurriendo luego de ejecutar un comando.
 
 p=. !/images/grb1.png!
 
-It also has an @explain@ command built in that dumps out the commands directly.
+También nos provee el comando @explain@, que nos devuelve una lista de los comandos Git necesarios para llevar a cabo una tarea determinada.
 
 p=. !/images/grb2.png!
 
-Provided you have "RubyGems installed":http://rubyforge.org/frs/?group_id=126, simply do @gem install git_remote_branch@ and you're set! Check out the code on "GitHub":http://github.com/webmat/git_remote_branch/tree if you have ideas on how to make it better (or want to write your own helpful commands based off of it!)
+Asumiendo que ya tienes "RubyGems instalado":http://rubyforge.org/frs/?group_id=126, simplemente ejecuta @gem install git_remote_branch@ ¡y listo! También puedes acceder directamente a los fuentes en "GitHub":http://github.com/webmat/git_remote_branch/tree si tienes ideas para mejorarlo (o si deseas escribir tus propios comandos).
 
-If you know of other helpful shortcuts that can help out Git users, "submit a tip!":http://gitready.com/submit.html
+Si conoces otros consejos útiles que pueden ayudar a los usuarios Git, "¡envíanos tus trucos!":http://gitready.com/submit.html
