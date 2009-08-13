@@ -6,11 +6,11 @@ category: advanced
 
 p=. Este artículo fue escrito por "Nathan de Vries":http://www.atnan.com/.
 
-Sinceramente nunca he sido un fan de gitk, pero cuando recién comenzaba a usar Git encontré una herramienta llamada "tig":http://jonas.nitro.dk/tig/. Está disponible en "MacPorts":http://tig.darwinports.com/ y también en Ubuntu (desde Gutsy) vía @apt-get install tig@. Tig provee una simple interface visual para Git desde la línea de comandos.
+Nunca he sido un fan de gitk, pero cuando recién comenzaba a usar Git encontré una herramienta llamada "tig":http://jonas.nitro.dk/tig/. Está disponible en "MacPorts":http://tig.darwinports.com/ y también en Ubuntu (desde Gutsy) vía @apt-get install tig@. Tig provee una simple interface visual para Git desde la línea de comandos.
 
 p=. "!/images/main-view-split.png(La vista principal de tig - el log en el panel superior, las diferencias en el panel inferior)!":http://jonas.nitro.dk/tig/screenshots/main-view-split.png
 
-La forma más simple de utilizar esta herramienta es ejecutar @tig@ desde un repositorio git. Este comando abrirá una vista del log, permitiendonos navegar por el mismo con las teclas de cursor (también puedes usar @j@ y @k@ si estás acostumbrado a usar vim). Al presionar @<enter>@ en cualquier commit podremos ver el diff correspondiente en el panel inferior. Cuando ambos paneles están visibles, con la barra espaciadora podemos navegar dentro del diff, y con las teclas arriba y abajo pasaremos de un commit a otro. Presionando @q@ cerramos el panel inferior, y presionando @q@ otra vez cerramos tig por completo.
+La forma más simple de utilizar esta herramienta es ejecutar @tig@ desde un repositorio git. Este comando abrirá una vista del log, permitiéndonos navegar por el mismo con las teclas de cursor (también puedes usar @j@ y @k@ si estás acostumbrado a usar vim). Al presionar @<enter>@ en cualquier commit podremos ver el diff correspondiente en el panel inferior. Cuando ambos paneles están visibles, con la barra espaciadora podemos navegar dentro del diff, y con las teclas arriba y abajo pasaremos de un commit a otro. Presionando @q@ cerramos el panel inferior, y presionando @q@ otra vez cerramos tig por completo.
 
 Otro aspecto interesante de tig es la vista de árbol. Luego de arrancar tig, prueba presionar @t@ cuando estés en la vista del log y verás una representación del repositorio en forma de árbol. Presiona @<enter>@ para ingresar a un directorio o ver un archivo. Con @<shift>-B@ sobre un archivo accedes a una vista más detallada del mismo.
 
