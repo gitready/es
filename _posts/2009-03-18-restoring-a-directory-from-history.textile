@@ -1,41 +1,40 @@
 ---
-published: false
 layout: post
-title: restoring a directory from history
+title: recuperando un directorio
 category: intermediate
 ---
 
-It's quite easy to "revert":http://gitready.com/intermediate/2009/03/16/rolling-back-changes-with-revert.html or "reset":http://gitready.com/beginner/2009/01/11/reverting-files.html a single file from history, but what about pulling an entire directory out of the history?
+Es relativamente fácil recuperar un sólo archivo desde la historia del repositorio usando "revert":http://gitready.com/intermediate/2009/03/16/rolling-back-changes-with-revert.html o "reset":http://gitready.com/beginner/2009/01/11/reverting-files.html, pero ¿cómo haríamos para recuperar un directorio entero?
 
 p=. "!/images/stump.png!":http://www.flickr.com/photos/stevejaysbestshots/1402673467/
 
-The solution is simple: 
+La solución es simple:
 
 @git checkout <treeish> -- /path/to/dir@
 
-That will bring back the directory from the given "treeish" for the @/path/to/dir@. Let's go through an example of this:
+Este comando recuperará el directorio @/path/to/dir@ desde el "treeish" especificado. Veamos un ejemplo:
 
-First off, let's remove a directory and then merge in a ton of changes (for future reference, this is going off a refactoring branch of "Jekyll":http://github.com/qrush/jekyll, the static blog engine that generates this site).
+Para empezar, eliminaremos un directorio y a continuación integraremos unos cuantos commits (a modo informativo, todo esto es parte de una rama real de "Jekyll":http://github.com/qrush/jekyll, el generador de blogs que se utiliza para generar este sitio).
 
 p=. !/images/checkout1.png!
 
-Here's how the history looks:
+Así quedaría la historia del repositorio:
 
 p=. !/images/checkout2.png!
 
-Hopefully this isn't too confusing. Basically the commit we just made is pretty far down in history, which most likely will be the case you're in if you need to restory a directory. First off, we need to get the reference to the commit that has the directory you want to pull. In this case, we know the last commit was the merge and the commit before that we deleted the directory. So, the commit we want to reference is the third commit in history, or @HEAD~2@. You could also reference this by the branch name (@test~2@) or even go one back from the SHA of the deletion (@f46666d^@). 
+Espero que el gráfico no sea demasiado confuso. Basicamente, nuestro commit quedó bastante abajo en la historia del repositorio, que es probablemente el caso más común cuando necesitamos recuperar un directorio. Antes que nada, debemos identificar el commit que tiene el directorio que queremos recuperar. En este caso, sabemos que el último commit fue el merge, y el commit anterior fue el que eliminó el directorio. Por lo tanto, el commit que queremos es el tercer commit en la historia, o @HEAD~2@. También podemos identificarlo con el nombre de la rama (@test~2@) o incluso como el SHA anterior a la eliminación del directorio (@f46666d^@).
 
-In any case, if you try to checkout a directory from a revision where it doesn't exist, you'll get this nice message:
+Siempre que intentes hacer un checkout de un directorio desde una revisión en la cual el directorio no existe, te encontrarás con este lindo mensaje de error:
 
 <pre>
 $ git checkout test~1 -- bin/
 error: pathspec 'bin' did not match any file(s) known to git.
 </pre>
 
-So, let's check out the correct revision and finally get our directory back where it belongs:
+Entonces, hagamos el checkout desde la revisión correcta para poder por fin recuperar nuestro directorio perdido:
 
 p=. !/images/checkout3.png!
 
-Great, now we're back in business. From here you can add or commit the file as needed.
+¡Buenísimo! Todo arreglado. A partir de aquí podemos trabajar con el directorio, o simplemente hacer un commit.
 
-If you're in this situation you might want to consider reverting the commit, which could restore the files that were deleted as well. However, this isn't always possible and may not be the best way to pull the directory you're missing back out of history.
+Si te encuentras en esta situación, tal vez quieras considerar revertir el commit, lo que recuperará también todos los archivos que han sido borrados. Sin embargo, no siempre es posible hacer esto, y en algunos casos puede que no sea la mejor opción.
