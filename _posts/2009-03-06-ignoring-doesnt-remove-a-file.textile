@@ -1,20 +1,19 @@
 ---
-published: false
 layout: post
-title: ignoring doesn't remove a file
+title: ignorar un archivo no lo elimina completamente
 category: beginner
 ---
 
-One problem I see quite often in the #git channel on Freenode is that beginners get confused as to why a file doesn't disappear from history when they place it into their ".gitignore":http://gitready.com/beginner/2009/01/19/ignoring-files.html file. The answer to this is quite simple! When you tell Git to ignore files, it's going to *only* stop watching changes for that file, and nothing else. This means that the history will still remember the file and have it.
+Una pregunta que veo bastante seguido en el canal #git en Freenode entre los que recién se inician con Git es por qué un archivo no desaparece de la historia del repositorio una vez que lo colocaron en sus archivos ".gitignore":http://gitready.com/beginner/2009/01/19/ignoring-files.html. La respuesta a esta pregunta es muy simple: cuando le dices a Git que ignore un archivo, lo *único* que Git hará es dejar de observar cambios en dicho archivo, y nada más que eso. Esto significa que la historia seguirá recordando a este archivo.
 
-If you want to remove a file from the repository, but keep it in your working directory, simply use:
+Si deseas eliminar un archivo del repositorio, pero mantenerlo en el directorio de trabajo, puedes utilizar la siguiente instrucción:
 
 @git rm --cached <file>@
 
-However, this will still keep the file in history. If you actually want to remove it from history, you really have two options: rewrite your repository's commits, or start over. Both options really suck, and that's for a good reason: Git tries hard not to lose your data. Just like with "rebasing":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html, Git forces you to think about these kinds of options since they are destructive operations.
+Sin embargo, esto también seguirá manteniendo la historia de este archivo. Si realmente deseas eliminarlo de la historia, tienes dos opciones: reescribir todos los commits de tu repositorio, o comenzar de cero. Las dos opciones son horribles, pero por una buena razón: por sobre todas las cosas, Git siempre va a intentar que no pierdas tus datos. Tal como occure con la técnica de "rebasing":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html, Git te obliga a pensar detenidamente sobre estas opciones dado que son operaciones destructivas.
 
-If you did actually want to remove a file from history, @git filter-branch@ is the hacksaw you're looking for. Definitely read up on its "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-filter-branch.html before using it, since it will literally rewrite your project's commits. This actually is a great tool for some actions, and can do all sorts of stuff like totally removing an author's commits to moving the project root folder around. The command to remove a file from all revisions is:
+Dicho esto, si realmente quieres eliminar un archivo de la historia del repositorio, @git filter-branch@ es la instrucción que estás buscando. Asegúrate de leer detenidamente la "documentación":http://www.kernel.org/pub/software/scm/git/docs/git-filter-branch.html antes de utilizarla, ya que literalmente estarás reescribiendo los commits de tu proyecto. Realmente es una gran herramienta para algunas situaciones específicas, y te permite realizar una gran cantidad de cosas, como eliminar completamente los commits de un autor determinado, o mover la raíz del proyecto de un lado a otro. El comando para eliminar un archivo de todas las revisiones es el siguiente:
 
 @git filter-branch --index-filter 'git rm --cached <file>' HEAD@
 
-This action can definitely be useful when you need to blow out sensitive or confidential information that may have been placed in your repository. More tips in the future will cover some of the other neat things @filter-branch@ can do. If you know of any useful tips regarding it, let us know in the comments or "submit a tip!":http://gitready.com/submit.html
+Esta acción puede ser útil si necesitas eliminar información confidencial que ha sido introducida por error en el repositorio. En futuros artículos cubriremos algunas otras cosas que podemos hacer con @filter-branch@. Si conoces algún truco en especial acerca de esta instrucción, escríbenos un comentario o "¡envíanos tu truco!":http://gitready.com/submit.html
