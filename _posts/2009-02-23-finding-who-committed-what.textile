@@ -1,25 +1,24 @@
 ---
-published: false
 layout: post
-title: finding who committed what
+title: ¿quién modificó cada línea?
 category: beginner
 ---
 
-Sometimes you may find it necessary to figure out just who committed that bug, or perhaps compliment a coworker on how efficiently an algorithm was implemented. Or maybe not, you just want to know who broke the build. Luckily, the @git blame@ command can help with figuring out exactly who's responsible for which line and what commit it came from.
+Puede que alguna vez necesites saber quién introdujo un bug en el repositorio, o tal vez quieras felicitar a algún compañero por cómo implementó un algoritmo determinado. Afortunadamente, el comando @git blame@ nos puede ayudar a determinar exactamente quién es responsable de cada línea de código y en qué commit se editó dicha línea.
 
-The basic usage is simply @git blame <file>@. The console output usually looks like so (check out the full image!):
+La sintaxis más simple es @git blame <archivo>@. La salida de este comando generalmente es algo similar a esto:
 
 p=. "!http://farm4.static.flickr.com/3606/3304779985_6c93865703.jpg!":http://farm4.static.flickr.com/3606/3304779985_2d1842b5f9_o.png
 
-For those confused at what this wall of text consists of, it shows the abbreviated commit SHA, the file name it originated from, the commit author and date, line number, and then the actual line of code.
+Para aquellos que estén confundidos, la salida de @git blame@ muestra el commit SHA abreviado, el nombre del archivo, el autor del commit, la fecha y hora del commit, el número de línea y finalmente, la línea en cuestión. 
 
-That's great and all, but there's plenty of other ways to get your blame on. If your code is up on GitHub, you get blame information included:
+Esto está muy bien, pero también hay otras maneras de obtener esta información. Por ejemplo, si tu código está en GitHub, puedes ver esta misma información así:
 
 p=. "!http://farm4.static.flickr.com/3463/3305616220_05a91c8e70.jpg!":http://farm4.static.flickr.com/3463/3305616220_a7b2850e62_o.jpg
 
-Another great way to see this information is with "git-age":http://wiki.github.com/krig/git-age, which is a viewer written in PyGtk. It's actually quite neat, it shows the Gravatar associated with the commit's email, and shows older commits with a darker gray background.
+Otra forma de acceder a esta misma información es mediante "git-age":http://wiki.github.com/krig/git-age, una herramienta escrita en PyGtk. Además de la información mencionada, también muestra el Gravatar asociado con el email del autor de cada commit, y muestra los commits más antiguos con un color de fondo más oscuro.
 
 p=. "!http://farm4.static.flickr.com/3454/3305608128_7000ca6fa2.jpg!":http://farm4.static.flickr.com/3454/3305608128_94edf84e1b_o.png
 
-If you know of any other tricks that this command can do or other useful viewers, let us know in the comments!
+Si conoces más trucos sobre @git-blame@ u otras herramientas para mostrar esta información, ¡déjanos un comentario!
 
