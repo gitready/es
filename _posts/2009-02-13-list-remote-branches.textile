@@ -1,15 +1,14 @@
 ---
-published: false
 layout: post
-title: list remote branches
+title: listando ramas remotas
 category: intermediate
 ---
 
-Sometimes you may need to figure out what "branches":http://gitready.com/beginner/2009/01/25/branching-and-merging.html exist on a remote repository so you can pull them down and check them out, merge them into your local branches, etc. If you're using "GitHub":http://github.com or "gitweb":http://git.or.cz/gitwiki/Gitweb to host your repository it's usually easy to determine the branch names, but if you need to get them in general or for scripts it's not exactly clear. 
+A veces es necesario saber qué "ramas":http://gitready.com/beginner/2009/01/25/branching-and-merging.html existen en un repositorio remoto para poder traerlas a nuestra pc, integrar nuestras modificaciones, etc. Si usas "GitHub":http://github.com o "gitweb":http://git.or.cz/gitwiki/Gitweb para hostear tus repositorios, es bastante fácil determinar los nombres de las ramas disponibles, pero si necesitas una solución más genérica o algo para usar en tus propios scripts, no es tan sencillo.
 
 p=. "!http://farm4.static.flickr.com/3163/3100342708_b12c4a36d6.jpg!":http://flickr.com/photos/joiseyshowaa/3100342708/
 
-*UPDATE:* The comments have enlightened me quite a bit...there seems to always be more than one way to skin a cat using Git. The easiest way is just to use the @git branch@ commands' various options. @-a@ shows all local and remote branches, while @-r@ shows only remote branches.
+*ACTUALIZACION:* Los comentarios recibidos me han enseñado varias cosas... tal parece que con Git siempre hay más de una forma de hacer lo mismo. En nuestro caso, la forma más fácil de listar las ramas disponibles en un repositorio es utilizando las distintas opciones del comando @git branch@. @-a@, por ejemplo, muestra todas las ramas locales y remotas, mientras que @-r@ muestra unicamente las ramas remotas.
 
 <pre>
 $ git branch
@@ -35,9 +34,9 @@ $ git branch -r
   origin/master
 </pre>
 
-So, once you know the name of the branch it's quite simple to "check them out.":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html If you have color options on it's also quite easy to tell which branches aren't pulled down since they're listed in red.
+Una vez que conoces el nombre de la rama, es bastante sencillo hacer el "checkout.":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html Si ves el resultado de los comandos en color, entonces también es fácil determinar cuáles son las ramas remotas que no existen localmente, ya que éstas se muestran en rojo.
 
-There's also another way to do figure out what branches are on your remote by actually using the remote related commands, @git remote@ and @git ls-remote@. The former displays plenty of information about the remote in general and how it relates to your own repository, while the latter simply lists all references to branches and tags that it knows about. 
+También hay otra forma de listar las ramas remotas utilizando los comandos @git remote@ y @git ls-remote@. El primero muestra bastante información sobre el respositorio remoto y cómo se relaciona con tu propio repositorio, mientras que el segundo comando simplemente lista todas las referencias a ramas y tags que conoce.
 
 <pre>
 $ git remote show origin
@@ -57,7 +56,7 @@ d6b9f8410c990b3d68d1970f1461a1d385d098d7  refs/heads/3-0-unstable
 f04346d8b999476113d5e5a30661e07899e3ff80  refs/heads/master
 </pre>
 
-The @ls-remote@ command returns the SHA1 hash of the latest commit for that reference, so it is quite easy to parse out and get to the exact commit you need if you're doing some scripting. The @--heads@ option lists only branch names since the command can list tags too.
+El comando @ls-remote@ muestra el SHA1 del último commit de cada ref, por lo tanto es bastante sencillo determinar cuál es el commit que necesitas. La opción @--heads@ lista unicamente las ramas, ya que el mismo comando también puede listar los tags.
 
-If you have any other uses for these commands or an easier way to figure out branches that live on a remote, comment away!
+Si conoces otras formas de usar estos comandos o una forma más simple de listar las ramas disponibles en un repositorio remoto, ¡déjanos un comentario!
 
