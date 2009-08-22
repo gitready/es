@@ -1,28 +1,27 @@
 ---
-published: false
 layout: post
-title: bash git status
+title: git status en el prompt
 category: advanced
 ---
 
-Yeah, we all know about the @git status@ command but that's just way too many characters to type again and again. Why bother with those 10 keyboard strokes when you could have your shell simply output git's working state? Sounds awesome, right? Luckily a few hackers have thrown together some scripts to do just this in your bash prompt. If you have these or similiar scripts working in other shells, "submit a tip about it!":http://gitready.com/submit.html
+Es cierto, todos conocemos el comando @git status@, pero son un montón de caracteres que hay que tipear una y otra vez. ¿Para qué molestarnos en presionar 10 teclas si podemos configurar la consola para que nos muestre el estado del repositorio? Impresionante, ¿no? Afortunadamente, varios hackers ya desarrollaron sus propios scripts para hacer exactamente esto en el prompt de bash. Si tienes algún script similar, por favor, "¡envíanos tus trucos!":http://gitready.com/submit.html
 
-p=. <a href="http://flickr.com/photos/levitateme/195355984/" title="I need one of these for IRC.">!http://farm1.static.flickr.com/72/195355984_7d6153610b.jpg!</a>
+p=. <a href="http://flickr.com/photos/levitateme/195355984/" title="Necesito uno de estos para IRC.">!http://farm1.static.flickr.com/72/195355984_7d6153610b.jpg!</a>
 
-Probably the most widely used and known one "shows your current branch name and if anything's changed.":http://henrik.nyh.se/2008/12/git-dirty-prompt Using this script in your @.bashrc@ will give you a prompt like so:
+Probablemente el script más utilizado y conocido es "mostrar el nombre de la rama actual y avisar si algo ha cambiado.":http://henrik.nyh.se/2008/12/git-dirty-prompt Utilizando dicho script en tu @.bashrc@ verás un prompt como éste:
 
 <pre>
-# When clean...
+# Nada ha cambiado...
 user@host ~/dir[master]$
 
-# When dirty...
+# Algo ha cambiado...
 user@host ~/dir[master*]$
 </pre>
 
-So then it's much easier to tell when you need to do a commit. You can check out "plenty of variants of this script at Gist.":http://gist.github.com/31631 This hack also evolved from "showing just your branch name":http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/ so feel free to build upon it or use it as you like.
+Así es mucho más fácil saber cuándo debes hacer un commit. Puedes ver "muchas variaciones de este script en Gist.":http://gist.github.com/31631 Este truco evolucionó de otro: "mostrando el nombre de la rama actual":http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/.
 
-Oh, you wanted more? Well, there is a neat project called "git-prompt":http://github.com/lvv/git-prompt/tree/master that can give you all sorts of information about the repository in your bash prompt. You can figure out if individual files are tracked or modified, figure out if merge conflicts are resolved, and even determine if your @HEAD@ is detached. "Check out the project page":http://volnitsky.com/project/git-prompt/ for more information on what it can do. Here's a little demo of what it can show:
+Oh, ¿quieres más? Bueno, existe un proyecto muy bueno llamado "git-prompt":http://github.com/lvv/git-prompt/tree/master que te permite poner en tu prompt cualquier clase de información sobre tu repositorio. Puedes determinar, por ejemplo, si algún archivo individual fue modificado, si existen conflictos sin resolver, y hasta determinar si tu @HEAD@ es una rama o un commit. "Visita la página principal del proyecto":http://volnitsky.com/project/git-prompt/ para obtener más información. Aquí vemos una demostración de lo que podemos hacer con esta herramienta:
 
-p=. <a href="http://volnitsky.com/project/git-prompt" title="It shows commit SHAs too! Badass.">!http://farm4.static.flickr.com/3492/3221797568_41a9803e01_o.png!</a>
+p=. <a href="http://volnitsky.com/project/git-prompt" title="Muestra también los SHAs!">!http://farm4.static.flickr.com/3492/3221797568_41a9803e01_o.png!</a>
 
-If you've got any other helpful prompt-related tips let us know and we'll add it in!
+Si tienes otros trucos para tu prompt, ¡déjanos un comentario y lo agregaremos!
