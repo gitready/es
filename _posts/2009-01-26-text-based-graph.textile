@@ -1,21 +1,21 @@
 ---
-published: false
+published: true
 layout: post
-title: text-based graph
+title: log gráfico en modo texto
 category: intermediate
 ---
 
-Just a short and interesting tip today about @git log --graph@. If you're confused about where branches are headed or how merges worked, and you're either too lazy to fire up @gitk@, @gitx@, or the "GitHub Network Graph":http://github.com/qrush/jekyll/network, you can get a really simple and fast graphical representation of your commits with this command.
+Hoy tenemos un truco simple pero interesante sobre @git log --graph@. Si te confunden las ramas y merges de tu repositorio, y no tienes muchas ganas de abrir @gitk@, @gitx@, o "GitHub Network Graph":http://github.com/qrush/jekyll/network, puedes obtener una simple y rápida representación gráfica de tus commits con este comando.
 
-Doing a @git log --graph@ produces this for my clone of the "jekyll":http://github.com/qrush/jekyll repo, which has changes not pushed from yesterday's post on "merging and branching.":http://gitready.com/beginner/2009/01/25/branching-and-merging.html However, in this form it's not really helpful:
+La ejecución de @git log --graph@ en mi clon de "jekyll":http://github.com/qrush/jekyll, que aún tiene algunos cambios del artículo de ayer sobre "merging and branching":http://gitready.com/beginner/2009/01/25/branching-and-merging.html que no han sido actualizados, produce lo siguiente. Sin embargo, en este formato la información presentada no es muy útil:
 
 p=. !/images/graphfail.png!
 
-Let's slim that down a bit to @git log --graph --pretty=oneline --abbrev-commit@ so we can get commits compressed and only show 7 characters from the SHA1:
+Podemos mejorar un poco la apariencia con @git log --graph --pretty=oneline --abbrev-commit@. Con estas opciones obtenemos la misma información resumida y sólo los primeros 7 caracteres de cada SHA1:
 
 p=. !/images/graph.png!
 
-Much better! Of course, "there's plenty of other ways to visualize your repository":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html as well.
+¡Mucho Mejor! Por supuesto, "existen muchas otras maneras de visualizar tu repositorio":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html.
 
-*UPDATE:* This command is included only in Git versions 1.5.6 and up.
+*UPDATE:* Este comando sólo se incluye en la versión de Git 1.5.6 o posteriores.
 

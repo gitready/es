@@ -1,15 +1,15 @@
 ---
-published: false
+published: true
 layout: post
-title: checkout tracked remote branch
+title: obteniendo ramas remotas
 category: intermediate
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+Frecuentemente necesito hacer esto cuando sincronizo varias PCs y al parecer siempre olvido cuál era el comando correcto. Digamos que tenemos más de una rama en el repositorio remoto, y queremos traerlas a nuestro repositorio local:
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+Veamos las ramas disponibles con @git remote@:
 
 <pre>
 $ git remote show origin
@@ -22,17 +22,17 @@ $ git remote show origin
         haml master
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+Afortunadamente, el comando para obtener una rama remota es bastante simple:
 
 <pre>
 git checkout --track -b 
   <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+Así que en nuestro caso, utilizamos este comando:
 
 @git checkout --track -b haml origin/haml@
 
-You can also use a simpler version:
+También es posible usar una versión más simple del mismo comando:
 
 @git checkout -t origin/haml@
