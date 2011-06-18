@@ -6,23 +6,24 @@ category: beginner
 ---
 
 
-Esconder tus cambios es una muy buena manera de pausar tu trabajo para regresar a el después. Por ejemplo, si estas trabajando en esa espectacular nueva funcionalidad, pero alguien encuentra un _bug_ que tu necesitas arreglar. Agregas tus cambios al index usando
+Esconder tus cambios es una muy buena manera de pausar tu trabajo para regresar a el despu&eacute;s. Por ejemplo, si estas trabajando en esa espectacular nueva funcionalidad, pero alguien encuentra un _bug_ que tu necesitas arreglar. Agregas tus cambios al index usando
 
 @git add .@
 
-También puedes agregar los archivos individuales que elijas. Ahora ya puedes esconder tus cambios con
+Tambi&eacute;n puedes agregar los archivos individuales que elijas. Ahora ya puedes esconder tus cambios con
+
 
 @git stash@
 
-Y listo! Tienes tu directorio de trabajo de nuevo en su estado original. Terminaste de arreglar ese bug? Puedes obtener tu trabajo de regreso con
+Y listo! Tienes tu directorio de trabajo de nuevo en su estado original. Terminaste de arreglar ese _bug_? Puedes obtener tu trabajo de regreso con
 
 @git stash apply@
 
-Puedes tener varias conapas de escondites o _stashes_, asegurate de usar
+Puedes tener varias capas de escondites o _stashes_, asegurate de usar
 
 @git stash list@
 
-Para ver un listado de todos. Si necesitas recuperar un escondite mas antiguo que el anterior, es algo sencillo de hacer. A continuación un ejemplo de como aplicar el segundo escondite de la lista
+Para ver un listado de todos. Si necesitas recuperar un escondite mas antiguo que el anterior, es algo sencillo de hacer. A continuaci&oacute;n un ejemplo de como aplicar el segundo escondite de la lista
 
 <code>git stash apply stash@{1}</code>
 
